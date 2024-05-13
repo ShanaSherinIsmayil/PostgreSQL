@@ -23,9 +23,11 @@
       2. Docker run command to create the postgres
     - Step 1: Pull the Image 
         Open command prompt and write: docker pull postgres
-        - $ docker pull postgres
+        #
+          -     docker pull postgres
     - Step 2: Create the container
-        - $ docker run --name my_postgres -d -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v D:/postgres:/var/lib/postgresql/data postgres
+        #
+          -     docker run --name my_postgres -d -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v D:/postgres:/var/lib/postgresql/data postgres
         - --name my_postgres : This option gives a name (postgres_img) to our Docker container.
         - -d: This option runs the container in detached mode, meaning it runs in the background without blocking the terminal, and it prints the container ID once it's done.
         - -e POSTGRES_PASSWORD=postgres: This sets an environment variable (POSTGRES_PASSWORD) inside the container and assigns it the value postgres. This is the password you'll use to access the PostgreSQL database.
@@ -36,3 +38,16 @@
             - Run above command
             - Go to Desktop home 
             - There we can see the created image of postgre
+## **Connect to PostgreSQL Database using PLSQL** 
+### Start the Dcoker
+Click on docker desktop app icon and start the docker
+### Start the container
+-    Two methods
+        -    Step 1: Using desktop run icon
+              -    Check on box and click on run button
+        -    Step 2: Using CLI command
+             #
+                 -    docker start my_postgres
+### Connect to container
+
+  
