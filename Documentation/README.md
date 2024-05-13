@@ -62,3 +62,29 @@ Click on docker desktop app icon and start the docker
     \du
 -    This is a meta command shows you name of all the users that are available on your server
   
+## **Connect PostgreSQL with VS Code**
+- To connect to PostgreSQL, make sure you have properly installed VS Code on your machine.
+### Installing the SQLTools Plugin For PostgreSQL
+-    Step 1: Open your VS Code.
+-    Step 2: Go to Extensions and search for ‘SQLTools’ extension.
+-    Step 3: Install the ‘SQLTools’ extension by Matheus Teixeira.
+-    Step 4: Once installed, locate the ‘SQLTools’ extension in the left-hand side extension bar, identifiable by its database-like icon.
+### Installing the SQLTools PostgreSQL/Cockroach Driver
+-    Step 1: Go to Extensions and search for ‘SQLTools PostgreSQL’ by Matheus Teixeira.
+-    Step 2: Install the ‘SQLTools PostgreSQL/Cockroach Driver’ extension.
+-    Step 3: Ensure that both the ‘SQLTools’ extension and the driver are successfully installed.
+### Setting Up the Connection Assistant Form
+-    Go to the SQLTools extension in the extension bar.
+-    Click on ‘Add New Connection’ and select ‘PostgreSQL’.
+-    Complete the Connection Assistant form using the installation string information:
+    -    Enter a desired connection name.
+    -    Leave the Connection Group field empty.
+    -    Keep the Connect String set on “Server and Port”.
+    -    Specify the Server address, using “localhost” if PostgreSQL is installed on the same machine or the IP address of a remote server.
+    -    Use the default port number, 5432, for the Port field.
+    -    Enter the name of the database to which you want to connect, using all lowercase letters for the default database, “postgres.”
+    -    Provide the default username, “postgres,” in lowercase letters.
+    -    Set the Use Password value based on your preference for security.
+    -    Enter the password assigned during installation.
+    -    Leave the remaining fields with their default values.
+-    Test the connection to ensure its success.
