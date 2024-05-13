@@ -88,4 +88,4 @@ Click on docker desktop app icon and start the docker
     -    Enter the password assigned during installation.
     -    Leave the remaining fields with their default values.
 -    Test the connection to ensure its success.
-'![Alt Text](Screenshot 2024-05-13 120039.png)'
+  ![SampleImage](https://github.com/ShanaSherinIsmayil/PostgreSQL/edit/main/Documentation/Screenshot 2024-05-13 120039.png)
