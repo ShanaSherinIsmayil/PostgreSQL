@@ -24,10 +24,10 @@
     - Step 1: Pull the Image 
         Open command prompt and write: docker pull postgres
         #
-          -     docker pull postgres
+          docker pull postgres
     - Step 2: Create the container
         #
-          -     docker run --name my_postgres -d -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v D:/postgres:/var/lib/postgresql/data postgres
+          docker run --name my_postgres -d -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v D:/postgres:/var/lib/postgresql/data postgres
         - --name my_postgres : This option gives a name (postgres_img) to our Docker container.
         - -d: This option runs the container in detached mode, meaning it runs in the background without blocking the terminal, and it prints the container ID once it's done.
         - -e POSTGRES_PASSWORD=postgres: This sets an environment variable (POSTGRES_PASSWORD) inside the container and assigns it the value postgres. This is the password you'll use to access the PostgreSQL database.
@@ -38,7 +38,7 @@
             - Run above command
             - Go to Desktop home 
             - There we can see the created image of postgre
-## **Connect to PostgreSQL Database using PLSQL** 
+## **Connect to PostgreSQL Database using PSQL** 
 ### Start the Dcoker
 Click on docker desktop app icon and start the docker
 ### Start the container
@@ -47,7 +47,18 @@ Click on docker desktop app icon and start the docker
               -    Check on box and click on run button
         -    Step 2: Using CLI command
              #
-                 -    docker start my_postgres
+                 docker start my_postgres
 ### Connect to container
-
+-    Default CLI to work with PostgreSQL is PSQL
+-    Open terminal and write the command
+  #
+      docker exec -it my_postgres psql -U postgres
+-   "docker exec" command is used to execute commands within a running Docker container.
+-   We can use the “-it” option together, which is a combination of two options. The “-i” option tells the Docker to allocate a pseudo-TTY for the command, and the “-t” option tells the Docker to create an interactive terminal session.
+-   We need to pass the container name and the PostgreSQL default command-line interface “psql”.
+-   We can also pass the desired username using the “-U” option.
+-   Running this command succeeds the connection to PostgreSQL
+### intial command
+    \du
+-    This is a meta command shows you name of all the users that are available on your server
   
