@@ -21,3 +21,18 @@
     - Two command from this page are required
       1. docker pull command to pull postgres image
       2. Docker run command to create the postgres
+    - Step 1: Pull the Image 
+        Open command prompt and write: docker pull postgres
+        - $ docker pull postgres
+    - Step 2: Create the container
+        - $ docker run --name my_postgres -d -e POSTGRES_PASSWORD=postgres -p 5432:5432 -v D:/postgres:/var/lib/postgresql/data postgres
+        - --name my_postgres : This option gives a name (postgres_img) to our Docker container.
+        - -d: This option runs the container in detached mode, meaning it runs in the background without blocking the terminal, and it prints the container ID once it's done.
+        - -e POSTGRES_PASSWORD=postgres: This sets an environment variable (POSTGRES_PASSWORD) inside the container and assigns it the value postgres. This is the password you'll use to access the PostgreSQL database.
+        - -p 5432:5432: This option exposes port 5432 on the container to the same port on the Docker host machine. Port 5432 is the default port for PostgreSQL, and exposing it allows external clients to connect to the PostgreSQL database running in the container.
+        - -v D:/postgres:/var/lib/postgresql/data: This option maps a directory on the Docker host machine (D:/postgres) to a directory inside the container (/var/lib/postgresql/data). This mapping enables persistent storage for the PostgreSQL data directory. Any data written to the PostgreSQL data directory inside the container will be saved to the specified directory on the host machine (D:/postgres), ensuring data persistence even if the container is stopped or restarted.
+        - postgres_image: This is the name of the Docker image used to create the container. In this case, it's the PostgreSQL image, which contains the necessary files and configurations to run a PostgreSQL database server.
+      - Step3: Run the command
+            - Run above command
+            - Go to Desktop home 
+            - There we can see the created image of postgre
