@@ -155,9 +155,52 @@ Click on docker desktop app icon and start the docker
           -    Execute the following command:
      #
          chmod g+rwx /home/tablespace
-## Command to see all tablsepace created
+### Command to see all tablsepace created
     \db
 -    For detail information
   #
-      \db+
-      
+    \db+
+## **Create Database in PostgreSQL**
+### Create Database Command:
+    CREATE DATABASE database_name
+    OWNER = owner_name
+    TEMPLATE = template
+    ENCODING = encoding			
+    LC_COLLATE = collate			
+    LC_CTYPE = ctype
+    TABLESPACE = tablespace_name;
+-    database_name : specifies name of database
+-    owner : specifies who owns the databse, By default owner is user who executes "CREATE DATABASE" command
+-    template : specifies a template for creating database, By default, template1
+-    encoding : specifies character set for database, determine how characters are stored and retrieved
+-    LC_COLLATE : LOCALE COLLATION , specifies sorting order of text within database . For instance, if set to English, words such as “cherry,” “banana,” and “apple” will be sorted alphabetically as “Apple,” “banana,” and “cherry.” However, if a different language is chosen, the sorting will differ accordingly. By omitting this parameter, the LC_COLLATE value from the template database will be inherited.
+-    LC_CTYPE : LOCALE CHARACTER CLASSIFICATION :     governs categorization of characters within database. For instance, in English, the letters ‘a,’ ‘e,’ ‘i,’ ‘o,’ and ‘u’ would be classified as vowels. However, with a Spanish setting, the classification would differ accordingly.
+-    TABLESPACE : Specifies a space where database files are stored in disk
+### Connect with PostgreSQL:
+-    Step1 : Connect to postgre Docker:
+#
+    Docker exec -it postgres_img psql -U postgres
+-    Step2 : Create the Database
+#
+    CREATE DATABASE library
+    OWNER = postgres
+    TEMPLATE = template0
+    ENCODING = UTF8
+    LC_COLLATE = 'en_US.utf8'
+    LC_CTYPE = 'en_US.utf8'
+    TABLESPACE = ts_users;
+-    template0 - a default twmplate
+-    UTF8 - a unicode standard, widely used standard to represent text in computers
+-    en_US.utf8 represent english using UTF-8 encoding
+## **Backslash Commands**
+- Note: All command start with 'backslash' '\' are called "Meta Commands"
+### Check if the database is created or not.
+    \l
+-    shows all database that are created
+### Command to connect with Database
+    \c <databse_name>
+-or execute 
+
+    SELECT current_databse();
+    
+
