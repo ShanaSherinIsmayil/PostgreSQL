@@ -56,3 +56,160 @@ student=# select * from class; <br>
 (5 rows) <br>
 
 ### To display output in a sorted order 
+-    For ascending order
+  
+    select * from class order by name;
+ id |  name  |  address <br>
+----+--------+------------ <br>
+  4 | bob    | alappuzha <br>
+  5 | john   | trivandrum <br>
+  2 | niha   | malappuram <br>
+  1 | shana  | tirur <br>
+  3 | sherin | palakkad <br>
+(5 rows) <br>
+
+    select * from class order by address;
+ id |  name  |  address <br>
+----+--------+------------ <br>
+  4 | bob    | alappuzha <br>
+  2 | niha   | malappuram <br>
+  3 | sherin | palakkad <br>
+  1 | shana  | tirur <br>
+  5 | john   | trivandrum <br>
+(5 rows) <br>
+
+- For descending order
+
+      select * from class order by address desc;
+ id |  name  |  address <br>
+----+--------+------------ <br>
+  5 | john   | trivandrum <br>
+  1 | shana  | tirur <br>
+  3 | sherin | palakkad <br>
+  2 | niha   | malappuram <br>
+  4 | bob    | alappuzha <br>
+(5 rows) <br>
+
+### To display first two rows
+    select * from class limit 2
+student-# ; <br>
+ id | name  |  address <br>
+----+-------+------------ <br>
+  1 | shana | tirur <br>
+  2 | niha  | malappuram <br>
+(2 rows) <br>
+
+    select * from class offset 2;
+ id |  name  |  address <br>
+----+--------+------------ <br>
+  3 | sherin | palakkad <br>
+  4 | bob    | alappuzha <br>
+  5 | john   | trivandrum <br>
+(3 rows) <br>
+### Retrieve using where cases:
+
+    select * from class where address='palakkad';
+ id |  name  | address <br>
+----+--------+---------- <br>
+  3 | sherin | palakkad <br>
+(1 row) <br>
+
+    select * from class where id='3';
+ id |  name  | address <br>
+----+--------+---------- <br>
+  3 | sherin | palakkad <br>
+(1 row) <br>
+
+    select * from class where id>3; <br>
+ id | name |  address <br>
+----+------+------------ <br>
+  4 | bob  | alappuzha <br>
+  5 | john | trivandrum <br>
+(2 rows) <br>
+
+    select * from class where id>3 and id<2;
+ id | name | address <br>
+----+------+--------- <br>
+(0 rows) <br>
+
+    select * from class where id>3 and id<1;
+ id | name | address <br>
+----+------+--------- <br>
+(0 rows) <br>
+
+    select * from class where id<3 and id>1; <br>
+ id | name |  address <br>
+----+------+------------ <br>
+  2 | niha | malappuram <br>
+(1 row) <br>
+
+    select * from class where id='4' or id='3';
+ id |  name  |  address <br>
+----+--------+----------- <br>
+  3 | sherin | palakkad <br>
+  4 | bob    | alappuzha <br>
+(2 rows) <br>
+
+    select * from class where id='4' and id='3';
+ id | name | address <br>
+----+------+--------- <br>
+(0 rows) <br>
+
+### To add new attribute to a table
+    alter table class add std integer;
+
+student=# select* from class <br>
+student-# ; <br>
+ id |  name  |  address   | std <br>
+----+--------+------------+----- <br>
+  1 | shana  | tirur      | <br>
+  2 | niha   | malappuram | <br>
+  3 | sherin | palakkad   | <br>
+  4 | bob    | alappuzha  | <br>
+  5 | john   | trivandrum | <br>
+(5 rows) <br>
+### To update data in a table
+-Update data :
+
+    update class set std = '2' where id='3';
+UPDATE 1 <br>
+student=# select* from class <br>
+; <br>
+ id |  name  |  address   | std <br>
+----+--------+------------+----- <br>
+  1 | shana  | tirur      | <br>
+  2 | niha   | malappuram | <br>
+  4 | bob    | alappuzha  | <br>
+  5 | john   | trivandrum | <br>
+  3 | sherin | palakkad   |   2 <br>
+(5 rows) <br>
+
+    update class set std = '8' where id!='3';
+UPDATE 4 <br>
+student=# select* from class <br>
+; <br>
+ id |  name  |  address   | std <br>
+----+--------+------------+----- <br>
+  3 | sherin | palakkad   |   2 <br>
+  1 | shana  | tirur      |   8 <br>
+  2 | niha   | malappuram |   8 <br>
+  4 | bob    | alappuzha  |   8 <br>
+  5 | john   | trivandrum |   8 <br>
+(5 rows) <br>
+### To delete all rows in a table
+
+    truncate table class;
+TRUNCATE TABLE <br>
+student=# select* from class; <br>
+ id | name | address | std <br>
+----+------+---------+----- <br>
+(0 rows) <br>
+
+### To drop a table
+    drop table class;
+Note: A database cannot be deleted if we are inside that database
+-    so connect to another dtaabase
+-    eg: \c postgres
+-    From there drop database student
+
+    drop database student;
