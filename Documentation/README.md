@@ -99,3 +99,27 @@ Click on docker desktop app icon and start the docker
 #
     SELECT current_user;
 -    Execute the query by clicking the “Run On Active Connection” button.
+## **TABLSESPACE in PostgreSQL**
+-    TABLESPACE is logical name given to a specific location in a disk drive
+-    It is a storage area for various database objects such as files, tables, views, index etc
+### Advantages of TABLESPACE in PostgreSQL
+-    All database objects remain organized under a named location. So, database backup and recovery is easy.
+-    Database Performance: More frequent data files can be located on a faster device where as less frequent database can be located on a slower device.
+### Default TABLESPACE
+-    By default PostgreSQL has 2 default TABLESPACEs
+#
+    pg_default
+-    This TABLESPACE holds user data like template 0 and template 1 databases
+#
+    pg_global
+-    This TABLESPACE holds global database data like system catalogs.
+### Syntax for creating TABLESPACE in PostgreSQL
+#
+    CREATE TABLESPACE tablsespace_name
+    OWNER user_name
+    LOCATION directory_path
+-    Note:
+      -    Can write in Capital or Small letters
+      -    Dont start tablespace name with PG_ it is reserved for PostgreSQL
+      -    OWNER is optional , it can be emitted , user who creates or owns this tablespace is owner
+      -    Location defines a space on disk drive where we want to create a tablespace
