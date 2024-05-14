@@ -88,4 +88,14 @@ Click on docker desktop app icon and start the docker
     -    Enter the password assigned during installation.
     -    Leave the remaining fields with their default values.
 -    Test the connection to ensure its success.
-  ![SampleImage](https://github.com/ShanaSherinIsmayil/PostgreSQL/edit/main/Documentation/Screenshot 2024-05-13 120039.png)
+### Handling Errors and Establishing Connection
+-    If any errors occur, ensure that your Docker container for PostgreSQL is running. Direct installations should not encounter similar issues.
+-    Once any errors are resolved, save the connection settings.
+-    From the connection panel, select the newly created connection, right-click on it, and choose “Connect.”
+-    This action opens a fresh SQL worksheet, ready for query execution.
+### Running SQL Queries
+-    Within the SQL worksheet, write and execute your SQL queries.
+-    As an example, let’s check the current user name with which we are connected:
+#
+    SELECT current_user;
+-    Execute the query by clicking the “Run On Active Connection” button.
