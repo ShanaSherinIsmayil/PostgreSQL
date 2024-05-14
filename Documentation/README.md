@@ -238,7 +238,7 @@ Click on docker desktop app icon and start the docker
       GRANT CREATE ON DATABASE <database_name> TO <user_name>;
   ### Create user using "Create Role" command
   -    Create role command doesnt have any default priveleges or permissions
-    ## ""Change User Password in PostgreSQL"
+    ## **Change User Password in PostgreSQ**
   -    Three different ways:
   ### 1.Using Pormpt
   -    Step1: Connect with database superuser
