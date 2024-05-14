@@ -15,27 +15,27 @@
 ### Display table
     select * from class;
 -
-     id | name | address
-    ----+------+---------
-    (0 rows)
+     id | name | address <br>
+    ----+------+--------- <br>
+    (0 rows) <br>
 ### Insert values to table
     insert into class (name,address) values ('shana','tirur');
     student=# insert into class (name,address) values ('shana','tirur');
-INSERT 0 1
-student=# select * from class;
- id | name  | address
-----+-------+---------
-  1 | shana | tirur
-(1 row)
+INSERT 0 1<br>
+student=# select * from class; <br>
+ id | name  | address <br>
+----+-------+---------<br>
+  1 | shana | tirur<br>
+(1 row)<br>
 
     insert into class values ('2','niha','malappuram');
-INSERT 0 1
-student=# select * from class;
- id | name  |  address
-----+-------+------------
-  1 | shana | tirur
-  2 | niha  | malappuram
-(2 rows)
+INSERT 0 1<br>
+student=# select * from class;<br>
+ id | name  |  address<br>
+----+-------+------------<br>
+  1 | shana | tirur<br>
+  2 | niha  | malappuram<br>
+(2 rows)<br>
 
     insert into class values ('3','sherin','palakkad');
 INSERT 0 1
@@ -44,15 +44,15 @@ INSERT 0 1
 INSERT 0 1
 
     insert into class values ('5','john','trivandrum');
-INSERT 0 1
-student=# select * from class;
- id |  name  |  address
-----+--------+------------
-  1 | shana  | tirur
-  2 | niha   | malappuram
-  3 | sherin | palakkad
-  4 | bob    | alappuzha
-  5 | john   | trivandrum
-(5 rows)
+INSERT 0 1<br>
+student=# select * from class; <br>
+ id |  name  |  address <br>
+----+--------+------------ <br>
+  1 | shana  | tirur <br>
+  2 | niha   | malappuram <br>
+  3 | sherin | palakkad <br>
+  4 | bob    | alappuzha <br>
+  5 | john   | trivandrum <br>
+(5 rows) <br>
 
 ### To display output in a sorted order 
