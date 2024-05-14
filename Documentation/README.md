@@ -123,3 +123,41 @@ Click on docker desktop app icon and start the docker
       -    Dont start tablespace name with PG_ it is reserved for PostgreSQL
       -    OWNER is optional , it can be emitted , user who creates or owns this tablespace is owner
       -    Location defines a space on disk drive where we want to create a tablespace
+### Create A Directory for Tablespace in PostgreSQL
+-    To create a tablespace, it is essential to first create a directory. If you have installed your database directly on your Mac or Windows system, simply create a folder on your system. That’s all you need to do. If you want to set up your database on Docker, Follow the below process to create the directory.
+-    Step1 : Start Your Docker
+          -    Double-click on the Docker Desktop app to start it
+-    Step2 : Start the Postgress Container
+          -    Run the container that contains your PostgreSQL Database
+          -    To start this container, open your Command Prompt or Terminal and execute the following command: (Note: my container name = my_postgres)
+      #
+         Docker Start <your_container_name>
+         #For Example
+         Docker Start my_postgres
+-    Step3 : Login as ROOT into bash
+          -    To create a directory , access the bash shell with ROOT user
+          -    Execute command:
+     #
+         docker exec --user root -it <container_name> bash
+         #For Example
+         docker exec --user root -it my_postgres bash    
+-    Step4 : Create The Directory For Tablespace in PostgreSQL
+          -    create a directory named “tablespace” inside “/home”. 
+     #
+         mkdir /home/tablespace
+-    Step5 : Fix the Permission
+          -    execute the following command:
+     #
+         chown postgres:postgres /home/tablespace
+-    Step6 : Set permission on Podtgres Group
+          -    After changing the group of our directory from root to postgres,
+          -    The next step is to grant “read, write, and execute” permissions to the postgres group.
+          -    Execute the following command:
+     #
+         chmod g+rwx /home/tablespace
+## Command to see all tablsepace created
+    \db
+-    For detail information
+  #
+      \db+
+      
