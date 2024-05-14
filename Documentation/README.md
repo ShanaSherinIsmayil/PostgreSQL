@@ -202,5 +202,59 @@ Click on docker desktop app icon and start the docker
 -or execute 
 
     SELECT current_databse();
-    
-
+## **ALTER Database Command**
+### Rename Database Command:
+    ALTER DATABASE <current_database_name> RENAME TO <new_database_name>
+### Set or Modify user in databse:
+    ALTER DATABASE <current_database_name> OWNER TO <new_user_name>
+### Set or Modify default tablespace:
+    ALTER DATABASE <current_database_name> SET TABLESPACE <new_tablespace_name>
+## **Drop a Database**
+### Commmand to drop database:
+    DROP DATABASE [IF EXISTS] <database_name>
+### Restrictions to drop a database:
+  1. Only superuser or owner can drop a database
+  2. There should not be any user connected to database that we want to drop, if any terminate the connection before dropping db
+    -    Command to terminate
+     #
+         SELECT * FROM pg_stat_activity WHERE datname='<database_name>';
+     -    this shows database where connected to a user
+     #
+         SELECT pg_terminate_backend(105) FROM pg_stat_activity WHERE datname='<database_name>'; //105 is pid of active connection
+- Two scenarios to drop database
+  1. Database is idle and no user is connected to it
+  2. Database is in use and some users are connected to it
+  ## **Create a user**
+  ### Create user using "Create User" command
+  -    It is a shortcut to create role command
+  -    Have priveleges such as "Create" and "Connect"
+  #
+      CREATE USER <user_name> WITH PASSWORD '<password>';
+  -    To connect this user to a specific database , grant connect privelege to user created:
+  #
+      GRANT CONNECT ON DATABASE <database_name> TO <user_name>;
+  -    Grant create privelege to this user on database , which allows permission to user to create objects such as tables , views etc
+  #
+      GRANT CREATE ON DATABASE <database_name> TO <user_name>;
+  ### Create user using "Create Role" command
+  -    Create role command doesnt have any default priveleges or permissions
+    ## ""Change User Password in PostgreSQL"
+  -    Three different ways:
+  ### 1.Using Pormpt
+  -    Step1: Connect with database superuser
+  #
+      Docker exec -it postgres_img psql -U postgres
+  -    Step2 : Issue '\password' meta-command
+  #
+      \password <user_name>
+  -    Enter new password twice    
+  ### 2.Alter Role DDL
+  -    Step1 : Connect with database using a superuser , verify by executing following command
+  #
+      SELECT current_user(); 
+  -   Step2 : Write Alter role DDL Command:
+  #
+      ALTER ROLE <user_name> WITH PASSWORD '<new_password'>
+  ### 3.Alter user DDL
+    #
+      ALTER USER <user_name> WITH PASSWORD '<new_password'>
